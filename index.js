@@ -50,29 +50,16 @@ function showMenuItem (dishItem) {
     numberInCart.textContent = dishItem.number_in_bag
 }
 
-function addToCart (currentItem) {
+function addToCart () {
     let cartForm = document.querySelector('#cart-form')
-
 
     cartForm.addEventListener('submit', e => {
         e.preventDefault();
-        console.log('submitted')
-        let cartAmount = document.querySelector('#cart-amount').value
-        let numberInCart = document.querySelector('#number-in-cart') 
-        let moreCart = e.target['cart-amount'].value
-        // let newNumber = parseInt(numberInCart) + parseInt(cartAmount)
-        // numberInCart.textContent = newNumber
-        // numberInCart.textContent += parseInt(moreCart);
-        numberInCart.textContent += parseInt(cartAmount);
+        currentItem.number_in_bag += parseInt(e.target['cart-amount'].value);
 
-        // console.log(numberInCart += moreCart)
+        showMenuItem(currentItem);
 
-        // currentItem.number_in_bag = e.target['cart-amount'].value
-        // numberInCart.textContent = cartAmount;
-
-        // showMenuItem(currentItem)
-
-        e.target.reset()
+        e.target.reset();
     })
 }
 // numberInCart.textContent = cartAmount;
